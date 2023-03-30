@@ -12,7 +12,7 @@ dotenv.config({
 });
 
 const {integrateProvider, errorHandler} = require('@flat-peak/express-integration-sdk');
-const {isValidAuthMetadata, fetchTariffFromProvider, adoptProviderTariff} = require('./modules/provider');
+const {authorise, capture, convert} = require('./modules/provider');
 
 const app = express();
 
@@ -67,9 +67,9 @@ app.use(integrateProvider({
     provider_id: process.env.PROVIDER_ID,
   },
   providerHooks: /** @type ProviderHooks<Object> */ {
-    validateCredentials: isValidAuthMetadata,
-    fetchTariff: fetchTariffFromProvider,
-    adoptTariff: adoptProviderTariff,
+    authorise: authorise,
+    capture: capture,
+    convert: convert,
 	logger: {
       log: console.log,
       error: console.error,
