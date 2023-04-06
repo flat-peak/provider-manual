@@ -10,7 +10,7 @@ const dotenv = require('dotenv');
 dotenv.config({
   path: path.join(__dirname, '.env'),
 });
-
+const {logger} = require('/modules/logger');
 const {integrateProvider, errorHandler} = require('@flat-peak/express-integration-sdk');
 const {authorise, capture, convert} = require('./modules/provider');
 
@@ -70,11 +70,7 @@ app.use(integrateProvider({
     authorise: authorise,
     capture: capture,
     convert: convert,
-	logger: {
-      log: console.log,
-      error: console.error,
-      info: console.info,
-    },
+	logger: logger,
   },
 }));
 
