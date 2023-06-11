@@ -9,13 +9,8 @@
     font-weight: 400;
 }
 
-html {
-    --fp-theme-background: #FFFFFF;
-    --accent-color: <PROVIDER_ACCENT_COLOR>;
-}
-
 body {
-    background: var(--fp-theme-background, #FFFFFF);
+    background: #ffffff;
     user-select: none;
     margin: 0;
 }
