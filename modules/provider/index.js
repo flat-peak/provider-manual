@@ -27,5 +27,5 @@ const convert = ({tariff, reference_id}) => {
 };
 
 module.exports = {
-  capture, authorise, convert
+  capture, authorise, convert,
 };
