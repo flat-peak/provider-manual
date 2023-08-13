@@ -201,161 +201,16 @@ const handleResetTariff = (state, action) => {
   state.structure = structure;
 };
 
-const mockTariff = () => {
-  return {
-    id: undefined,
-    object: "tariff",
-    display_name: "My tariff plan",
-    product_id: undefined,
-    timezone: undefined,
-    time_created: undefined,
-    time_expiry: undefined,
-    import: [{
-      "type": "weekday",
-      "data": [
-        {
-          "days_and_hours": [
-            {
-              "days": [
-                "Weekdays"
-              ],
-              "hours": [
-                {
-                  "valid_from": "00:23:00",
-                  "valid_to": "00:34:00",
-                  "cost": 0.15
-                },
-                {
-                  "valid_from": "00:34:00",
-                  "valid_to": "02:00:00",
-                  "cost": 0.15
-                },
-                {
-                  "valid_from": "02:00:00",
-                  "valid_to": "00:00:00",
-                  "cost": 0.07
-                }
-              ]
-            },
-            {
-              "days": [
-                "Weekend"
-              ],
-              "hours": [
-                {
-                  "valid_from": "00:23:00",
-                  "valid_to": "00:34:00",
-                  "cost": 0.15
-                },
-                {
-                  "valid_from": "00:34:00",
-                  "valid_to": "02:00:00",
-                  "cost": 0.15
-                },
-                {
-                  "valid_from": "02:00:00",
-                  "valid_to": "00:00:00",
-                  "cost": 0.07
-                }
-              ]
-            }
-          ],
-          "months": [
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "May",
-            "Jun"
-          ]
-        },
-        {
-          "days_and_hours": [
-            {
-              "days": [
-                "Weekdays"
-              ],
-              "hours": [
-                {
-                  "valid_from": "00:00:00",
-                  "valid_to": "00:00:00",
-                  "cost": 0.01
-                }
-              ]
-            },
-            {
-              "days": [
-                "Weekend"
-              ],
-              "hours": [
-                {
-                  "valid_from": "00:00:00",
-                  "valid_to": "00:00:00",
-                  "cost": 0.01
-                }
-              ]
-            }
-          ],
-          "months": [
-            "Jul",
-            "Aug",
-            "Sep",
-            "Oct"
-          ]
-        },
-        {
-          "days_and_hours": [
-            {
-              "days": [
-                "Weekdays"
-              ],
-              "hours": [
-                {
-                  "valid_from": "00:00:00",
-                  "valid_to": "00:23:00",
-                  "cost": 0.01
-                }
-              ]
-            },
-            {
-              "days": [
-                "Weekend"
-              ],
-              "hours": [
-                {
-                  "valid_from": "00:00:00",
-                  "valid_to": "00:23:00",
-                  "cost": 0.01
-                }
-              ]
-            }
-          ],
-          "months": [
-            "Nov",
-            "Dec"
-          ]
-        }
-      ]
-    }],
-    export: undefined,
-  };
-}
 export const tariffSlice = createSlice({
   name: "tariff",
   initialState: {
-    _plan: blankTariff({
+    plan: blankTariff({
       time: true,
       hours: false,
       months: false,
     }),
-    plan: mockTariff(),
     provider: undefined,
     saved: false,
-    _structure: {
-      time: true,
-      hours: false,
-      months: false,
-    },
     structure: {
       time: true,
       hours: true,

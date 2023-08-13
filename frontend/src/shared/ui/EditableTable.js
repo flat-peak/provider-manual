@@ -74,6 +74,7 @@ export const EditableTableInput = styled.input`
   top: -2px;
   border: none;
   -webkit-appearance: none;
+  background-color: transparent;
   width: 100%;
   &:focus {
     outline: none;

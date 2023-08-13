@@ -10,7 +10,7 @@ RUN npm install --production --silent --force  \
     && mkdir -p /usr/src/app/frontend/node_modules/.cache  \
     && chmod -R 777 /usr/src/app/frontend/node_modules/.cache
 COPY --chown=node:node . .
-RUN cd frontend && npm i react-scripts --force && npm run build && cd ..
+RUN cd frontend && npm i react-scripts  --production --silent --force  && npm run build && rm -rf node_modules && cd ..
 EXPOSE 8080
 USER node
 CMD ["npm", "start"]

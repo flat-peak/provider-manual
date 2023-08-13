@@ -1,4 +1,7 @@
 <div class="form-widget">
+    <div class="provider-logo">
+        <img src="{{{ProviderLogoUrl}}}" alt="" class="logo">
+    </div>
     <form name="auth" action="/auth/capture" method="post" style="--accent-color: {{{ProviderAccentColor}}}">
         <input type="hidden" name="auth" value="{{{Authorisation}}}">
         <input type="hidden" name="state" value="{{{SharedState}}}">

@@ -148,6 +148,11 @@ p.additional {
     column-gap: 8px;
 }
 
+.provider-logo {
+    text-align: center;
+    padding: 24px 0 8px 0;
+}
+
 .page.widget-container {
     min-height: 100vh;
     display: flex;
