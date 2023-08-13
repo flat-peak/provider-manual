@@ -13,7 +13,7 @@
     </script>
 {{/if}}
 
-
+<script src="{{frontendEntryScript}}"></script>
 <script>
     window.addEventListener("load", function () {
         window.requestAnimationFrame(() => {
@@ -21,7 +21,7 @@
                 object: 'error',
                 type: 'integration_error',
                 critical: true,
-                message: '{{{error}}}' || 'Something went wrong',
+                message: `{{{error}}}` || 'Something went wrong',
                 state: '{{{PublicState}}}'
             });
         });

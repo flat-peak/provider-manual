@@ -8,6 +8,12 @@ const bodyParser = require('body-parser');
 const {logger} = require('./modules/logger');
 const {integrateProvider, errorHandler} = require('@flat-peak/express-integration-sdk');
 const {authorise, capture, convert} = require('./modules/provider');
+const frontendEntryScript = require('./frontend/build/asset-manifest.json').files['main.js'];
+const Handlebars = require('handlebars');
+Handlebars.registerHelper('frontendEntryScript', () => {
+  return frontendEntryScript;
+});
+
 
 const app = express();
 
@@ -26,6 +32,7 @@ app.use(requestLogger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'frontend/build')));
 
 // The `integrateProvider` router attaches /, /auth, /share, /cancel
 // and /api/tariff_plan routes to the baseURL
