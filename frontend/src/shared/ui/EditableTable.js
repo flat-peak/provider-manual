@@ -9,7 +9,7 @@ export const EditableTableRow = styled.div`
 `;
 
 export const EditableTableBoxes = styled.div`
-  width: 85%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

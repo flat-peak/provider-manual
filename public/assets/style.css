@@ -13,6 +13,7 @@ body {
     background: #ffffff;
     user-select: none;
     margin: 0;
+    font-family: 'SF Pro Display', serif;
 }
 
 a {
@@ -20,15 +21,12 @@ a {
 }
 
 .page {
-    padding: 24px 0 24px;
+    padding: 24px 0 12px;
     min-width: 335px;
     max-width: 335px;
     box-sizing: border-box;
     width: 100%;
     margin: 0 auto;
-    /*padding: 20px 20px;*/
-
-    font-family: 'SF Pro Display';
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
@@ -37,8 +35,12 @@ a {
     color: #000000;
 }
 
+.provider-logo {
+    text-align: center;
+    padding: 0 0 24px 0;
+}
+
 .title {
-    font-family: 'SF Pro Display';
     font-style: normal;
     font-weight: 400;
     font-size: 25px;
@@ -48,13 +50,27 @@ a {
     margin: 0;
 }
 .description {
-    font-family: 'SF Pro Display';
     font-style: normal;
     font-weight: 400;
     font-size: 17px;
     line-height: 20px;
     margin: 4px 0 0 0;
     color: #000000;
+}
+
+.input-block {
+    margin-top: 30px;
+    border: 1px solid var(--accent-color);
+    backdrop-filter: blur(2px);
+    padding: 12px 12px;
+    border-radius: 8px;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.input-block .gdpr-description {
+    margin: 10px 0 0 0;
 }
 
 .gdpr-description {
@@ -68,27 +84,20 @@ a {
 }
 
 .logo {
-    max-width: 150px;
-    width: 100%;
-    height: auto;
+    max-height: 35px;
+    width: auto;
 }
 
 .form {
-    border: 1px solid #666666;
-    border-radius: 10px;
     display: flex;
     flex-direction: column;
-    padding: 14px 16px 14px;
-    margin-top: 25px;
 }
-
+.form select,
 .form input {
     border: none;
     border-bottom: 1px solid #898989;
     margin-top: 30px;
     background: transparent;
-
-    font-family: 'SF Pro Display';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -106,21 +115,21 @@ a {
     backdrop-filter: blur(2px);
     border: none;
     padding: 8px 12px;
-
-    font-family: 'SF Pro Display';
     font-style: normal;
     font-weight: 400;
-    font-size: 20px;
-    line-height: 24px;
+    font-size: 22px;
+    line-height: 40px;
     text-align: center;
-
     color: #FFFFFF;
-
     flex: 1;
-    margin-top: 44px;
+    margin-top: 40px;
+}
+.form button[type=reset]:disabled,
+.form button[type=submit]:disabled {
+    opacity: 0.7;
 }
 .form button[type=reset] {
-    background: none;
+    background: #eeeeee;;
     color: #000000;
 }
 .disclaimer {
@@ -148,29 +157,122 @@ p.additional {
     column-gap: 8px;
 }
 
-.provider-logo {
+
+.separator {
     text-align: center;
-    padding: 24px 0 8px 0;
+    margin: 25px 0;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
 }
 
-.page.widget-container {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+.form label.action-button,
+.form button[type].action-button {
+    border: 2px solid var(--accent-color);
+    backdrop-filter: blur(2px);
+    padding: 12px 12px;
+    border-radius: 8px;
     margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity ease-in-out 0.3s;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+.form label.action-button:active,
+.form button[type].action-button:active {
+    opacity: 0.7;
+}
+.action-button__title {
+    font-size: 22px;
+    margin: 0;
+    text-align: center;
+}
+
+.action-button__subtitle {
+    padding-top: 10px;
+    font-size: 16px;
+    margin: 0;
+    text-align: center;
+}
+
+.action-buttons {
+    padding: 40px 0 20px;
+    width: 100%;
+    flex: 1;
+}
+
+.visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+
+.form label.action-button {
+    display: flex;
+    flex-direction: row;
+    column-gap: 2px;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 80px;
+}
+
+.form .action-button__control {
+    margin: 0;
+    -webkit-appearance: none;
+    appearance: none;
+    font: inherit;
+    color: currentColor;
+    width: 20px;
+    height: 20px;
+    border: 1px solid currentColor;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+    flex-basis: 1.15em;
+    box-sizing: border-box;
+
+    --form-control-color: currentColor;
     padding: 0;
-    max-width: 390px;
 }
 
-.form-widget {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    background: #EDEDED;
+.form .action-button__control::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--form-control-color);
+    transform-origin: bottom left;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
 }
 
-.form-widget__root {
-    flex: 1;
-    display: flex;
+
+.form .action-button__control:checked::before {
+    transform: scale(1);
+}
+
+
+.form .action-button__desc {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.form .action-button__indicator{
+    width: 24px;
+    height: 24px;
+    flex: 0;
+    flex-basis: 24px;
+    padding: 2px;
+    box-sizing: border-box;
 }

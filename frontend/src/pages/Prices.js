@@ -124,13 +124,13 @@ export default function Prices() {
 
   const getDescription = () => {
     if (!structure.months) {
-      return `Adjust cost per kWh for your ${
+      return `What is the cost per kWh on your ${
         side === TARIFF_SIDE.IMPORT ? "import" : "export"
-      } tariff`;
+      } tariff?`;
     }
-    return `Adjust cost per kWh for your ${
+    return `What is the cost per kWh for your ${
       side === TARIFF_SIDE.IMPORT ? "import" : "export"
-    } tariff. Add more periods as required.`;
+    } tariff?. Add more periods as required.`;
   };
 
   const getNextScreenParams = () => {

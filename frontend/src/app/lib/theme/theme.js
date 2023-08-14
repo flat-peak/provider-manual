@@ -51,6 +51,6 @@ export const theme = {
   sizes: {
     footerMinHeight: 200,
   },
-  screenHorizontalOffset: 24,
+  screenHorizontalOffset: 0,
   headingAlign: "left",
 };

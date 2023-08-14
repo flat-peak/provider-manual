@@ -35,9 +35,7 @@ export default function TariffStructure({ side }) {
   const dispatch = useDispatch();
 
   let title = "What affects your rate?";
-  let subTitle = `Which of the following affects your ${
-    side === TARIFF_SIDE.IMPORT ? "import" : "export"
-  } rate?\nSelect all that apply.`;
+  let subTitle = `Select all options that affect the price of electricity when you ${side === TARIFF_SIDE.IMPORT ? "buy" : "sell"} it from your supplier.`;
 
   return (
     <Page>
@@ -46,7 +44,7 @@ export default function TariffStructure({ side }) {
         <Main>
           <RateFactors>
             <ButtonCheckbox
-              title={"Time of Use"}
+              title={"Time of Day"}
               value={structure.hours}
               onChange={(value) =>
                 dispatch(
@@ -78,8 +76,8 @@ export default function TariffStructure({ side }) {
               }
             />
             <ButtonCheckbox
-              value={structure.months}
               title={"Season/Month"}
+              value={structure.months}
               onChange={(value) =>
                 dispatch(
                   setStructure({
@@ -93,10 +91,6 @@ export default function TariffStructure({ side }) {
                 )
               }
             />
-
-            <CentredPlaceholder>
-              <Text variant={"heading"}>- OR -</Text>
-            </CentredPlaceholder>
 
             <ButtonCheckbox
               value={!structure.days && !structure.hours && !structure.months}

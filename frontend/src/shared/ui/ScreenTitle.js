@@ -5,7 +5,7 @@ const ScreenTitleContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  padding: 16px ${({ theme }) => theme.screenHorizontalOffset}px 12px;
+  padding: 0 ${({ theme }) => theme.screenHorizontalOffset}px 12px;
 `;
 
 const ScreenSubTitleContainer = styled.div`
