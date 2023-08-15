@@ -11,7 +11,7 @@ const PeriodContainer = styled.div`
 `;
 
 const PeriodBox = styled.div`
-  background-color: #ffffff;
+  background-color: #eeeeee;
   border-radius: 5px;
   padding: 1px 6px;
 `;
