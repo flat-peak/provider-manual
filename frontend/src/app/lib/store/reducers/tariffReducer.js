@@ -213,8 +213,8 @@ export const tariffSlice = createSlice({
     saved: false,
     structure: {
       time: true,
-      hours: true,
-      months: true,
+      hours: false,
+      months: false,
     },
   },
   reducers: {
