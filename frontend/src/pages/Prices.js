@@ -40,7 +40,7 @@ import {useIntegration} from '../app/ui/IntegrationContext';
 export default function Prices() {
   const { state } = useLocation();
   const navigate = useNavigate();
-  const {onComplete, setAuthMetaData, setClientSchedule} = useIntegration();
+  const {setAuthMetaData, setClientSchedule} = useIntegration();
   const { side, seasonIndex, daysIndex } = state || {
     side: 'import',
     seasonIndex: 0,
@@ -383,9 +383,9 @@ export default function Prices() {
                 if (!complete) {
                   navigate(path, {state});
                 } else {
-                  setAuthMetaData({ foo: '2'});
+                  setAuthMetaData();
                   setClientSchedule(schedule)
-                  onComplete();
+                  navigate('/contract');
                 }
               }}
             />

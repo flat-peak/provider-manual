@@ -26,7 +26,7 @@ export const EditableTableBox = styled(TouchableOpacity)`
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 7px 14px;
+  padding: ${({ disablePadding }) => disablePadding ? `0` :`7px 14px`};
   margin-left: ${({ isFirst }) => (isFirst ? 0 : 18)}px;
   position: relative;
   row-gap: 4px;

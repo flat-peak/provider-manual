@@ -4,7 +4,7 @@
  * considered as a reference and used in tariff fetching
  */
 const authorise = async (credentials, params) => {
-  return Promise.resolve({ success: true });
+  return Promise.resolve({success: true});
 };
 
 /**
@@ -20,25 +20,25 @@ const capture = async (reference, params) => {
   }
   return Promise.resolve({
     success: true,
-    tariff: params?.state?.client_metadata?.schedule
+    tariff: params?.state?.client_metadata,
   });
 };
 
 /**
- * @param tariff - Provider tariff object
+ * @param {{schedule: FlatPeak.Tariff, contract_end_date}} input - Provider tariff object
  * @param reference_id - tariff reference id if exists, an account number for e.g.
  * @return {FlatPeak.Tariff} - converted tariff object
  */
-const convert = (tariff) => {
+const convert = (input) => {
+  const {contract_end_date, schedule} = input;
   return {
     'object': 'tariff',
     'display_name': '',
-    // 'reference_id': String(reference_id),
     'integrated': false,
     'product_id': undefined,
-    // 'timezone': city.timezone,
-    // 'time_expiry': expire.toISOString(),
-    'import': [tariff],
+    'time_expiry': contract_end_date,
+    'contract_end_date': contract_end_date,
+    'import': [schedule],
     'export': [],
   };
 };

@@ -4,6 +4,7 @@ export const IntegrationContext = createContext({
   onComplete: () => {},
   setClientSchedule: () => {},
   setAuthMetaData: () => {},
+  setContractEndDate: () => {},
   auth: '',
   state: ''
 });
@@ -20,7 +21,16 @@ export const IntegrationProvider = ({onComplete, auth, state, children}) => {
       sharedState.current = btoa(JSON.stringify(stateObject));
     }
 
-    const setAuthMetaData = (data) => {
+    const setContractEndDate = (date) => {
+      const stateObject = JSON.parse(atob(sharedState.current));
+      if (!stateObject.client_metadata) {
+        stateObject.client_metadata = {}
+      }
+      stateObject.client_metadata.contract_end_date = date;
+      sharedState.current = btoa(JSON.stringify(stateObject));
+    }
+
+    const setAuthMetaData = (data = {}) => {
       const stateObject = JSON.parse(atob(sharedState.current));
       stateObject.auth_metadata = data;
       sharedState.current = btoa(JSON.stringify(stateObject));
@@ -32,6 +42,7 @@ export const IntegrationProvider = ({onComplete, auth, state, children}) => {
           onComplete: () => onComplete({state: sharedState.current, auth}),
           setAuthMetaData,
           setClientSchedule,
+          setContractEndDate,
           auth,
           state
       }}>

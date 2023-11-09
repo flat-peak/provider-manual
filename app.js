@@ -40,11 +40,11 @@ app.use(integrateProvider({
   pages: /** @type OnboardPages */ {
     index: {
 	  view: 'index',
-	  title: 'Manual Provider integration',
+	  title: 'Assisted Provider integration',
     },
     auth: {
 	  view: 'auth',
-	  title: 'Sign in to your account with Manual Provider',
+	  title: 'Configure your tariff settings with Assisted Provider',
     },
     share: {
 	  view: 'share',
@@ -52,7 +52,7 @@ app.use(integrateProvider({
     },
     success: {
 	  view: 'success',
-	  title: 'You have shared your tariff with Manual Provider',
+	  title: 'You have shared your tariff with Assisted Provider',
     },
   },
   appParams: /** @type AppParams */ {

@@ -8,12 +8,14 @@ import {
 } from "react-router-dom";
 import Seasons from '../../pages/Seasons';
 import Prices from '../../pages/Prices';
+import ContractEndDate from '../../pages/ContractEndDate';
 
 const routes = createRoutesFromElements(
   <Route path="/">
     <Route path="/" element={<TariffStructure side={"import"}/>}/>
     <Route path="/seasons" element={<Seasons/>}/>
     <Route path="/prices" element={<Prices/>}/>
+    <Route path="/contract" element={<ContractEndDate/>}/>
   </Route>
 )
 
