@@ -39,9 +39,9 @@ export default function ContractEndDate() {
             disabled={!value}
             onClick={() => {
               if (value) {
-                setContractEndDate(value.toString())
+                setContractEndDate(value.toDate().toISOString());
               }
-              onComplete()
+             onComplete()
             }}
             variant="executive"/>
           <Button
