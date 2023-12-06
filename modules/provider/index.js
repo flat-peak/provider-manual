@@ -20,7 +20,10 @@ const capture = async (reference, params) => {
   }
   return Promise.resolve({
     success: true,
-    tariff: params?.state?.client_metadata,
+    tariff: {
+      ...params?.state?.client_metadata,
+      timezone: params?.state?.timezone,
+    },
   });
 };
 
@@ -30,12 +33,13 @@ const capture = async (reference, params) => {
  * @return {FlatPeak.Tariff} - converted tariff object
  */
 const convert = (input) => {
-  const {contract_end_date, schedule} = input;
+  const {contract_end_date, schedule, timezone} = input;
   return {
     'object': 'tariff',
     'display_name': '',
     'integrated': false,
     'product_id': undefined,
+    'timezone': timezone,
     'time_expiry': contract_end_date,
     'contract_end_date': contract_end_date,
     'import': [schedule],
